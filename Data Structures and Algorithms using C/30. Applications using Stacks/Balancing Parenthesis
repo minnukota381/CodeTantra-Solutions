@@ -1,0 +1,69 @@
+#include<stdio.h>
+#include<conio.h>
+#define STACK_MAX_SIZE 30
+char arr[STACK_MAX_SIZE];
+int top = -1;
+void push(char element) {
+    if(top == STACK_MAX_SIZE - 1) {
+        printf("Stack is overflow.\n");
+    } else {
+        top = top + 1;
+        arr[top] = element;
+    }
+}
+char pop() {
+    long int x;
+    if(top < 0) {
+        printf("Stack is underflow.\n");
+    } else {
+        x = arr[top];
+        top = top - 1;
+        return x;
+    }
+}
+int isempty() {
+    if(top == -1)
+        return 1;
+    else 
+        return 0;   
+}
+//Complete the code below.
+int isBalanced(char exp[]) { 
+    
+    int n=strlen(exp);
+    
+    for (int i=0;i<n;i++){
+        if(exp[i]=='(' || exp[i] == '{' ||exp[i]=='['){
+            push(exp[i]);
+    } else if(exp[i] ==')'||exp[i]=='}'||exp[i]==']'){
+        if(isempty()){
+            return 0;
+        } else {
+            char x=pop();
+            switch(exp[i]){
+                case ')':
+                if(x!='(') return 0;
+                break;
+                case '}':
+                if(x!='{') return 0;
+                break;
+                case ']':
+                if(x!='[') return 0;
+                break;
+            }
+        }
+    }
+    }
+    return isempty();
+    
+}
+void main() {
+    char ch[80], temp;
+    printf("Enter an expression : ");
+    scanf("%s", ch);
+    if(isBalanced(ch) == 1) {
+        printf("Expression is balanced.\n");
+    } else {
+        printf("Expression is not balanced.\n");
+    }
+}

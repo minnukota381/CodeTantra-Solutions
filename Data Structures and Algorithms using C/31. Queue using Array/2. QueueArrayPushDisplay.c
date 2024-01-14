@@ -12,14 +12,14 @@ void enqueue(int x) {
         queue[rear]=x;
         printf("Successfully inserted.\n");
         if(front==-1){
-            front=0;
+            front=front+1;
         }
     }
 }
 //This displays all the elements of the queue.
 //If the queue is empty display "Queue is empty."
 void display() {
-    if(front==1&&rear==-1){
+    if(rear==-1){
         printf("Queue is empty.\n");
     } else {
         printf("Elements in the queue : ");

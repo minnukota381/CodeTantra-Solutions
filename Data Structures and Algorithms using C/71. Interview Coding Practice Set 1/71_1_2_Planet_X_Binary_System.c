@@ -7,7 +7,7 @@ int isBinary(const char *str) {
         if (*str != '0' && *str != '1') {
             return 0;
         }
-        str++;
+        ++str;
     }
     return 1;
 }
@@ -38,14 +38,14 @@ int main() {
     scanf("%s", binary1);
     scanf("%s", binary2);
 
-    if (strlen(binary2) >= 200 || binary1[0] == '\0' || binary2[0] == '\0' || binary1[0] == '0' || binary2[0] == '0' || !isBinary(binary1) || !isBinary(binary2)) {
+    if (strlen(binary1) >= 200 || strlen(binary2) >= 200 || !binary1[0] || !binary2[0] || binary1[0] == '0' || binary2[0] == '0' || !isBinary(binary1) || !isBinary(binary2)) {
         return 1;
     }
 
     char *result = addBinary(binary1, binary2);
 
-    if (result[0] == '\0') {
-        printf("0\n");
+    if (result[0] == 'P') {
+        printf("%s\n",result+1);
     } else {
         printf("%s\n", result);
     }

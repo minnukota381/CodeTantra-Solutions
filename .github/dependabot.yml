@@ -1,10 +1,6 @@
 version: 2
 updates:
-  - package-ecosystem: "make" # Specifies Makefile dependencies
-    directory: "/" # Location of Makefile
-    schedule:
-      interval: "weekly" # Frequency of updates: daily, weekly, monthly
-  - package-ecosystem: "cmake" # Specifies CMake dependencies
-    directory: "/" # Location of CMakeLists.txt
+  - package-ecosystem: "conan" # Specifies Conan dependencies
+    directory: "/" # Location of conanfile.txt or conanfile.py
     schedule:
       interval: "weekly" # Frequency of updates: daily, weekly, monthly
